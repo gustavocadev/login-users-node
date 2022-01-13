@@ -1,0 +1,43 @@
+<h1 class="text-4xl">All notes</h1>
+<section>
+<div class="
+relative
+items-center
+w-full
+px-5
+py-12
+mx-auto
+md:px-12
+lg:px-24
+max-w-7xl
+">      
+    <section class="grid w-full grid-cols-1 gap-12 mx-auto lg:grid-cols-2">
+        {{#each notes }}
+    <div class="p-6">
+       <section class="flex justify-end">
+            <a href="/notes/edit/{{_id}}">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+            </a>
+       </section>
+       <h1 class="
+            mx-auto
+            mb-8
+            text-2xl
+            font-semibold
+            leading-none
+            tracking-tighter
+            text-neutral-600
+            lg:text-3xl
+            "> {{ title }}</h1>
+        <p class="mx-auto text-base leading-relaxed text-gray-500">{{ description }}</p>
+        <form action="/notes/delete/{{_id}}?_method=DELETE" method="post">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="text-md px-6 py-2 rounded-md bg-red-500 text-indigo-50 font-semibold cursor-pointer mt-4 block w-full">Delete</button>
+        </form>
+    </div>
+        {{/each}}
+    </section>
+</div>
+</section>
+
+
